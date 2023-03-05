@@ -1,16 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import CryptoHome from './pages/cryptohome';
+import CryptoDetail from './pages/CryptoDetail';
+import Navbar from './components/Navbar'
+
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-   <>
-    <div className='app'>
-      <h1 className='text-center'>App</h1>
-    </div>
-   </>
+      <BrowserRouter>
+      <Navbar />
+        <Routes>
+          <Route path='/' element={<CryptoHome />} />
+          <Route path='/coin/:id' element={<CryptoDetail />}/>
+        </Routes>
+      </BrowserRouter>
   )
 }
 
